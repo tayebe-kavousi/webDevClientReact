@@ -1,0 +1,25 @@
+i {
+    margin-right: 10px;
+}
+.i-plain {
+    color: #737373;
+    background-color: transparent !important
+}
+
+.i-plain:hover {
+    color: #fff;
+    background-color: #737373 !important;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2)
+}
+
+.i-small-box {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 22px
+}

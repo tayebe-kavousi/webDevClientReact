@@ -1,6 +1,4 @@
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.css";
-
 
 export default class CourseCard extends React.Component{
   render(){
