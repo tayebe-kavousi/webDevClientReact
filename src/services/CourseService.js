@@ -27,6 +27,18 @@ class CourseService {
             console.log(e)
         }
     }
+    async deleteCourse(courseId){
+        try{
+            const request = await fetch(`${this.COURSE_API_URL}/${courseId}`,{
+                method: "DELETE",
+                mode:"cors"
+            });
+            return request;
+
+        } catch (e){
+            console.log("ERROR : ",e)
+        }
+    }
 
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
