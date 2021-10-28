@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Link, Route,Redirect, Switch} from 'react-router-dom'
-import CourseCards from '../components/CourseCards';
-import ModuleList from "../components/ModuleList";
-import LessonTabs from '../components/LessonTabs';
-import TopicPills from '../components/TopicPills';
+import Course from "./Course";
+import ModuleList from "./ModuleList";
+import LessonTabs from './LessonTabs';
+import TopicPills from './TopicPills';
 
 export default class App extends React.Component {
   render(){
@@ -22,14 +22,14 @@ export default class App extends React.Component {
               <Link to="/ModuleList.js">Modules</Link>
             </li>
             <li>
-              <Link to="/CourseCards.js">Courses</Link>
+              <Link to="/Course.js">Courses</Link>
             </li>
           </nav>
           <Switch>
             <Route path="/TopicPills.js"><TopicPills/></Route>                          
             <Route path="/LessonTabs.js"><LessonTabs/></Route>            
             <Route path="/ModuleList.js" ><ModuleList/></Route>             
-            <Route path="/CourseCards.js"><CourseCards/></Route>
+            <Route path="/Course.js"><Course/></Route>
             <Redirect to='/App'/>
           </Switch>
         </div>
