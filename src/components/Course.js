@@ -28,11 +28,19 @@ export default class Course extends React.Component{
             modified: new Date()
         }});
     }
+    
     createCourse = () => {
         this.courseService.createCourse(this.state.newCourse)
-        .then(course => this.courseService.findAllCourses())
+        .then(() => this.courseService.findAllCourses())
         .then(courses => this.setState({courses: courses}));
     }
+
+    deleteCourse = (courseId) =>{
+        this.courseService.deleteCourse(courseId)
+        .then(() => this.courseService.findAllCourses())
+        .then(courses => this.setState({courses: courses}));
+    }
+
     render(){
         return(
             <div>
@@ -54,8 +62,8 @@ export default class Course extends React.Component{
                         </button>
                     </div>
                 </div>
-                <CourseList courses={this.state.courses}/>
-                <CourseCard courses={this.state.courses}/>
+                <CourseList courses={this.state.courses} deleteCourse={this.deleteCourse}/>
+                <CourseCard courses={this.state.courses} deleteCourse={this.deleteCourse}/>
             </div>
         );
     }

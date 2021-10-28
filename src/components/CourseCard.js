@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RenderCard({course}){
+function RenderCard({course, deleteCourse}){
   return(
 <div className="col-sm-3">
       <div className="card">
@@ -10,24 +10,26 @@ function RenderCard({course}){
           <p className="card-text">
             This is a course.
           </p>
-          </div>
-          <div className="card-footer">
-          <p className="card-text"><small className="text-muted">Last updated at 
-          {course.modified}
-          </small></p>
-          <a href="#" className="btn btn-primary">created at 
-          {course.created}
-          </a>
+        </div>
+        <div className="card-footer">
+          <p className="card-text">
+            <small className="text-muted">created at {course.created}</small>
+          </p>
+          <p className="card-text">
+            <small className="text-muted">Last modified at {course.modified}</small>
+          </p>
+          <button className="btn btn-primary" onClick={()=>deleteCourse(course.id)}>delete</button>
         </div>
       </div>
     </div> 
   );
 }
 
-export default function CourseCard({courses}){  
+export default function CourseCard({courses, deleteCourse}){  
   return (
     <div className="row">
-      {courses.map( (course,i) => <RenderCard key={i} course={course}/>)}
+      {courses.map( (course,i) => <RenderCard key={i} course={course} deleteCourse={deleteCourse}/>)}
     </div>
   );
 }
+

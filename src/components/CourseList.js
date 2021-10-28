@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-function CourseRow({course}){
+function CourseRow({course, deleteCourse}){
     return(
       <tr>
         <td>{course.title}</td>
         <td>created at: {course.created}</td>
         <td>last updated at: {course.modified}</td>
+        <td><button className="btn btn-primary" onClick={()=>deleteCourse(course.id)}>delete</button></td>
     </tr>
     );
   }
-export default function CourseList({courses}){
+export default function CourseList({courses, deleteCourse}){
     return (
         <div>
             <table className="table">
@@ -21,7 +22,7 @@ export default function CourseList({courses}){
                 </tr>
             </thead>
             <tbody>
-            {courses.map( (course,i) => <CourseRow key={i} course={course}/>)}
+            {courses.map( (course,i) => <CourseRow key={i} course={course} deleteCourse={deleteCourse}/>)}
             </tbody>
             </table>
         </div>
