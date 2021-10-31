@@ -4,6 +4,7 @@ import Course from "./Course";
 import ModuleList from "./ModuleList";
 import LessonTabs from './LessonTabs';
 import TopicPills from './TopicPills';
+import CourseEditor from './CourseEditor';
 
 export default class App extends React.Component {
   render(){
@@ -30,6 +31,7 @@ export default class App extends React.Component {
             <Route path="/LessonTabs.js"><LessonTabs/></Route>            
             <Route path="/ModuleList.js" ><ModuleList/></Route>             
             <Route path="/Course.js"><Course/></Route>
+            <Route path="/course/:courseId"><CourseEditor/></Route>
             <Redirect to='/App'/>
           </Switch>
         </div>
