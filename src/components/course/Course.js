@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseCard from './CourseCard';
 import CourseList from './CourseList';
-import CourseService from '../services/CourseService';
+import CourseService from '../../services/CourseService';
 
 export default class Course extends React.Component{
     constructor() {

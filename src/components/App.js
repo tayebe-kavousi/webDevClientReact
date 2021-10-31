@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Link, Route,Redirect, Switch} from 'react-router-dom'
-import Course from "./Course";
-import ModuleList from "./ModuleList";
-import LessonTabs from './LessonTabs';
-import TopicPills from './TopicPills';
-import CourseEditor from './CourseEditor';
+import Course from "./course/Course";
+import ModuleList from "./course/ModuleList";
+import LessonTabs from './course/LessonTabs';
+import TopicPills from './course/TopicPills';
+import CourseEditor from './course/CourseEditor';
 
 export default class App extends React.Component {
   render(){
