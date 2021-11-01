@@ -3,6 +3,21 @@ let _singleton = Symbol();
 class UserService {
     COURSE_API_URL ="http://localhost:8080/api/user";
 
+    async login(user){
+        try{
+            const request = await fetch("http://localhost:8080/login", {
+                method:"post",
+                mode:"cors",
+                headers:{"content-type": "application/json"},
+                body: JSON.stringify(user),
+                credentials:"include"
+            });
+            return await request.json(); 
+        } catch(e){
+            console.log(e)
+        }
+    }
+
     async findAllUsers() {
         const response = await fetch(this.COURSE_API_URL);
         return await response.json();
@@ -14,14 +29,7 @@ class UserService {
         });
     }
 
-    login(user){
-        return fetch("/login", {
-            method:"post",
-            headers:{"content-type": "application/json"},
-            body: JSON.stringify(user),
-            credentials:"include"
-        })
-    }
+   
 
     updateUser(user,id){
         return fetch(`${this.COURSE_API_URL}/${id}`, {
