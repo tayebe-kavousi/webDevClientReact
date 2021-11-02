@@ -1,12 +1,12 @@
 let _singleton = Symbol();
 
 class UserService {
-    COURSE_API_URL ="http://localhost:8080/api/user";
+    COURSE_API_URL ="http://localhost:8080";
 
     async login(user){
         try{
-            const request = await fetch("http://localhost:8080/login", {
-                method:"post",
+            const request = await fetch(`${this.COURSE_API_URL}/login`, {
+                method:"POST",
                 mode:"cors",
                 headers:{"content-type": "application/json"},
                 body: JSON.stringify(user),
@@ -18,13 +18,31 @@ class UserService {
         }
     }
 
+    async register(userObj){
+        try{
+            const request = await fetch(`${this.COURSE_API_URL}/register`,
+                {
+                    method:"POST",
+                    mode: "cors",
+                    body: JSON.stringify(userObj),
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    "credentials": "include"
+                });
+            return await request.json();
+        } catch (e){
+            console.log("Error: ", e);
+        }
+    }
+
     async findAllUsers() {
-        const response = await fetch(this.COURSE_API_URL);
+        const response = await fetch(`${this.COURSE_API_URL}/api/user`);
         return await response.json();
     }
 
     deleteUser(id) {
-        return fetch(`${this.COURSE_API_URL}/${id}`, {
+        return fetch(`${this.COURSE_API_URL}/api/user/${id}`, {
             method: "DELETE",
         });
     }
@@ -32,7 +50,7 @@ class UserService {
    
 
     updateUser(user,id){
-        return fetch(`${this.COURSE_API_URL}/${id}`, {
+        return fetch(`${this.COURSE_API_URL}/api/user/${id}`, {
             method:"put",
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(user),
@@ -41,22 +59,12 @@ class UserService {
     }
 
     async profile() { 
-        const response = await fetch('/profile', {
+        const response = await fetch(`${this.COURSE_API_URL}/profile`, {
             'credentials': 'include'
         });
         return await response.json();
     }
 
-    register(userObj){
-        return fetch("/register",
-            {
-                method:"POST",
-                headers:{"Content-Type":"application/json"},
-                body: JSON.stringify(userObj),
-                "credentials": "include"
-            }
-        )
-    }
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
             throw new Error('Cannot instantiate directly.');
