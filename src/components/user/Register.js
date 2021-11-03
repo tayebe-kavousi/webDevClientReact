@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import UserService from "../../services/UserService";
 
 
-export class Register extends Component{
+export default class Register extends Component{
     constructor(){
         super();
         this.userService = UserService.instance;
