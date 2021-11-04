@@ -2,6 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import * as FiIcons from 'react-icons/fi'
 
 export const SidebarData = [
   {
@@ -11,39 +12,39 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Login',
-    path: '/login',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Sign Up',
-    path: '/register',
-    icon: <FaIcons.FaCartPlus />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Courses',
     path: '/Course',
-    icon: <IoIcons.IoMdPeople />,
+    icon: <FiIcons.FiBookOpen />,
     cName: 'nav-text'
   },
   {
     title: 'Topics',
     path: '/TopicPills',
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    icon: <FiIcons.FiList />,
     cName: 'nav-text'
   },
   {
     title: 'Modules',
     path: '/ModuleList',
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <FiIcons.FiHexagon />,
     cName: 'nav-text'
   },
   {
     title: 'Lessons',
     path: '/LessonTabs',
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <FiIcons.FiFeather />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Login',
+    path: '/login',
+    icon: <FiIcons.FiUser />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Sign Up',
+    path: '/register',
+    icon: <FiIcons.FiUser />,
     cName: 'nav-text'
   }
 ];
