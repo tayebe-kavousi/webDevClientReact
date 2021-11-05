@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CourseService from '../../services/CourseService'; 
-import $ from 'jquery';
-import './Home.css';
+
 
 export default class Home extends Component {
     constructor() {
@@ -10,7 +9,6 @@ export default class Home extends Component {
         this.state = {courses:[]}
     }
     componentDidMount() {
-        $('.carousel').carousel()
         this.courseService.findAllCourses()
         .then(courses => {
             this.setState({courses: courses});
@@ -23,31 +21,31 @@ export default class Home extends Component {
                 <h2>Learn Without Limits</h2>
                 <h3>Build skills with courses, certificates, and degrees online from world-class universities and companies.</h3>
                 
-                <div id="courseCarousel" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#courseCarousel" data-slide-to="0" class="active"></li>
+                <div id="courseCarousel" className="carousel slide carousel-fade" data-ride="carousel" data-interval="5000" data-pause="hover">
+                    <ol className="carousel-indicators">
+                        <li data-target="#courseCarousel" data-slide-to="0" className="active"></li>
                         <li data-target="#courseCarousel" data-slide-to="1"></li>
                         <li data-target="#courseCarousel" data-slide-to="2"></li>
                     </ol>
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img className="d-block w-100" src="https://picsum.photos/id/1000/600/300" alt="First slide"/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2>Course 1</h2>
-                                <p>a new  course to teach you Bootstrap</p>
+                            <img className="d-block w-100" src="https://picsum.photos/id/0/600/300?grayscale" alt="First slide"/>
+                            <div className="carousel-caption d-none d-md-block container" style={{color:'rgb(1, 62, 73)'}} >
+                                <h1>Course 1</h1>
+                                <h3>a new  course to teach you Bootstrap</h3>
                             </div>
                         </div>
                         <div className="carousel-item">
-                            <img className="d-block w-100" src="https://picsum.photos/id/1001/600/300" alt="Second slide"/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2>Course 2</h2>
+                            <img className="d-block w-100" src="https://picsum.photos/id/119/600/300?grayscale" alt="Second slide"/>
+                            <div className="carousel-caption d-none d-md-block container" style={{color:'rgb(1, 62, 73)'}}>
+                                <h1>Course 2</h1>
                                 <p>a new  course to teach you Javascript</p>
                             </div>
                         </div>
                         <div className="carousel-item">
-                            <img className="d-block w-100" src="https://picsum.photos/id/1002/600/300" alt="Third slide"/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2>Course 1</h2>
+                            <img className="d-block w-100" src="https://picsum.photos/id/180/600/300?grayscale" alt="Third slide"/>
+                            <div className="carousel-caption d-none d-md-block container" style={{color:'rgb(1, 62, 73)'}}>
+                                <h1>Course 3</h1>
                                 <p>a new  course to teach you React</p>
                             </div>
                         </div>
