@@ -8,7 +8,8 @@ import CourseEditor from './course/CourseEditor';
 import Login from './user/Login';
 import Register from './user/Register';
 import Navbar from './navbar/Navbar.js';
-import Home from './home/Home'
+import Home from './home/Home';
+import Footer from './footer/Footer'
 
 export default class Main extends Component {
   render(){
@@ -27,6 +28,7 @@ export default class Main extends Component {
               <Route path="/Register" component={Register}/>
               <Redirect to='/Home'/>
             </Switch>
+            <Footer />
         </div>
       </Router>
     );
