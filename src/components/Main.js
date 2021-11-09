@@ -23,7 +23,7 @@ export default class Main extends Component {
               <Route path="/TopicPills" component={TopicPills}/>                        
               <Route path="/LessonTabs" component={LessonTabs}/>           
               <Route path="/ModuleList" component={ModuleList}/>           
-              <Route path="/Course"component={Course}/>
+              <Route path="/Course" exact component={Course}/>
               <Route path="/course/:courseId" component={CourseEditor}/>
               <Route path="/Login" component={Login}/>
               <Route path="/Register" component={Register}/>

@@ -40,6 +40,14 @@ class CourseService {
         }
     }
 
+    async findCourseById(courseId){
+        try{
+            const request = await fetch(`${this.COURSE_API_URL}/${courseId}`);
+            return await request.json();
+        }catch(e){
+            console.log("ERROR: ",e);
+        }
+    }
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
             throw new Error('Cannot instantiate directly.');

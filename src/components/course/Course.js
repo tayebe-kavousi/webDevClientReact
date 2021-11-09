@@ -43,7 +43,7 @@ export default class Course extends React.Component{
 
     render(){
         return(
-            <div className="course">
+            <div className="course container-fluid">
                 <div>
                     <input 
                         type="text" 
