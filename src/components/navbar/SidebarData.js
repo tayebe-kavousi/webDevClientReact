@@ -44,5 +44,11 @@ export const SidebarData = [
     path: '/register',
     icon: <FiIcons.FiUser />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Admin',
+    path: '/admin',
+    icon: <FiIcons.FiUser />,
+    cName: 'nav-text'
   }
 ];

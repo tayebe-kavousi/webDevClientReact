@@ -37,8 +37,12 @@ class UserService {
     }
 
     async findAllUsers() {
+        try{
         const response = await fetch(`${this.COURSE_API_URL}/api/user`);
         return await response.json();
+        } catch(e){
+            console.log('Error: ', e);
+        }
     }
 
     deleteUser(id) {
