@@ -16,24 +16,6 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Topics',
-    path: '/TopicPills',
-    icon: <FiIcons.FiList />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Modules',
-    path: '/ModuleList',
-    icon: <FiIcons.FiHexagon />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Lessons',
-    path: '/LessonTabs',
-    icon: <FiIcons.FiFeather />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Login',
     path: '/login',
     icon: <FiIcons.FiUser />,

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route,Redirect, Switch} from 'react-router-dom'
 import Course from "./course/Course";
-import ModuleList from "./course/ModuleList";
-import LessonTabs from './course/LessonTabs';
-import TopicPills from './course/TopicPills';
+import ModuleList from "./course/modules/ModuleList";
+import LessonTabs from './course/lessons/LessonTabs';
+import TopicPills from './course/topics/TopicPills';
 import CourseEditor from './course/CourseEditor';
 import Login from './user/Login';
 import Register from './user/Register';

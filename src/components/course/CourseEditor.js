@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import CourseService from "../../services/CourseService";
+import ModuleList from "./modules/ModuleList";
 
 export default class CourseEditor extends Component {
     constructor(props){
         super(props);
         this.state = {
-            course:{}
+            course:{
+                modules:[{
+                    lessons:[{
+                        topics:[]
+                    }]}]
+            }
         }
         this.courseService = CourseService.instance;
     }
@@ -16,8 +22,9 @@ export default class CourseEditor extends Component {
     render(){
         return (
             <div className="container-fluid">
-                <h2>Course Editor {this.props.match.params.courseId}</h2>
-                <h3>Course Title: {this.state.course.title}</h3>
+                <h2>Course Title: {this.state.course.title}</h2>
+                <h4>Modules:</h4>
+                <ModuleList course={this.state.course}/>
             </div>
         );
     }
