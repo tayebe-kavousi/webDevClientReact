@@ -2,9 +2,9 @@ import React from 'react';
 
 function RenderCard({course, deleteCourse}){
   return(
-<div className="col-sm-3">
+    <div className="col-sm-3">
       <div className="card">
-        <img className="card-img-top" src="https://picsum.photos/200/300" alt="decorative"/>
+        <img className="card-img-top" src={course.imgURL} alt="decorative"/>
         <div className="card-body">
           <h5 className="card-title">{course.title}</h5>
           <p className="card-text">
@@ -12,6 +12,9 @@ function RenderCard({course, deleteCourse}){
           </p>
         </div>
         <div className="card-footer">
+        <p className="card-text">
+            <small className="text-muted">Owner:{course.owner}</small>
+          </p>
           <p className="card-text">
             <small className="text-muted">created at {course.created}</small>
           </p>
