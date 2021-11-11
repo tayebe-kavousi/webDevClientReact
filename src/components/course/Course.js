@@ -8,7 +8,11 @@ export default class Course extends React.Component{
         super();
         this.courseService = CourseService.instance;
         this.state = {
-            newCourse: {},
+            newCourse: {
+                title: "",
+                owner: "",
+                imgURL: ""
+            },
             courses: []
         };
     }
@@ -21,15 +25,31 @@ export default class Course extends React.Component{
     }
 
     handleInputChange= (event)=>{
-        console.log( "new course: ", event.target.value);
-        this.setState({newCourse: {
-            title: event.target.value,
-            created: new Date(),
-            modified: new Date()
-        }});
+        if(event.target.id === "newCourseTitle"){
+            console.log(event.target.value);
+            this.setState({newCourse: {
+                ...this.state.newCourse,
+                title: event.target.value,
+                created: new Date(),
+                modified: new Date()
+            }});
+        } else if(event.target.id === "newCourseOwner"){
+            console.log(event.target.value);
+            this.setState({newCourse: {
+                ...this.state.newCourse,
+                owner: event.target.value,
+            }});
+        } else if(event.target.id === "newCourseImgURL"){
+            console.log(event.target.value);
+            this.setState({newCourse: {
+                ...this.state.newCourse,
+                imgURL: event.target.value,
+            }});
+        }
     }
     
     createCourse = () => {
+        console.log(this.state.newCourse);
         this.courseService.createCourse(this.state.newCourse)
         .then(() => this.courseService.findAllCourses())
         .then(courses => this.setState({courses: courses}));
@@ -45,11 +65,28 @@ export default class Course extends React.Component{
         return(
             <div className="course container-fluid">
                 <div>
+                <h2>New Course</h2>
                     <input 
                         type="text" 
-                        id="newCourse" 
-                        name="newCourse" 
-                        placeholder="new course" 
+                        id="newCourseTitle" 
+                        name="newCourseTitle" 
+                        placeholder="Title" 
+                        className="form-control"
+                        onChange={this.handleInputChange}
+                    />
+                      <input 
+                        type="text" 
+                        id="newCourseOwner" 
+                        name="newCourseOwner" 
+                        placeholder="Owner" 
+                        className="form-control"
+                        onChange={this.handleInputChange}
+                    />
+                      <input 
+                        type="text" 
+                        id="newCourseImgURL" 
+                        name="newCourseImgURL" 
+                        placeholder="Image URL" 
                         className="form-control"
                         onChange={this.handleInputChange}
                     />
@@ -62,6 +99,7 @@ export default class Course extends React.Component{
                         </button>
                     </div>
                 </div>
+                <h1>Course List</h1>
                 <CourseList courses={this.state.courses} deleteCourse={this.deleteCourse}/>
                 <CourseCard courses={this.state.courses} deleteCourse={this.deleteCourse}/>
             </div>

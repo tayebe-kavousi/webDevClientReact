@@ -22,8 +22,8 @@ export default class CourseEditor extends Component {
     render(){
         return (
             <div className="container-fluid">
-                <h2>Course Title: {this.state.course.title}</h2>
-                <h4>Modules:</h4>
+                <h2 style={{"margin-left":"40%"}}>Course Title: {this.state.course.title}</h2>
+                <hr/>
                 <ModuleList course={this.state.course}/>
             </div>
         );
