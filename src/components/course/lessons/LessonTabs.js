@@ -1,4 +1,5 @@
 import React from "react";
+import ModuleList from "../modules/ModuleList";
 import TopicPills from "../topics/TopicPills";
 
 export default class LessonTabs extends React.Component{
@@ -16,19 +17,23 @@ export default class LessonTabs extends React.Component{
     }
     render(){
         const module = this.props.module;
-        return(
+        const showLessons = module.lessons.length > 0 ?
             <div>
-                <h3>Lessons for {module.title}</h3>
+                <h5>{module.lessons.length} Lessons for {module.title}</h5>
                 <ul className="nav nav-tabs">
                     {module.lessons.map((lesson, i) => {
                         return(
                             <li className="nav-item" key={i} onClick={()=>this.selectLesson(i)}>
-                                <a className="nav-link active" aria-current="page" href="#">{lesson.title}</a>
+                                <a className="nav-link" aria-current="page" href="#">{lesson.title}</a>
                             </li>
-                        )
-                    })}
+                        )})}
                 </ul>
-                <TopicPills lesson={module.lessons[this.state.selectedLessonIndex]} />  
+                <TopicPills lesson={module.lessons[this.state.selectedLessonIndex]} /> 
+            </div> :
+            <h6> No Lessons Found !</h6>
+        return(
+            <div> 
+                {showLessons}
             </div>
         );
     }

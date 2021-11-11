@@ -20,19 +20,11 @@ export default class CourseEditor extends Component {
         .then(course=>{this.setState({course:course})})
     }
     render(){
-        const modules = this.state.course.modules.length > 0 ?
-                        <div>
-                            <h4>
-                                {this.state.course.modules.length} Modules:
-                            </h4>
-                            <ModuleList course={this.state.course}/>
-                        </div> :
-                        <div> No module's found </div>
         return (
             <div className="container-fluid">
                 <h2 style={{"margin-left":"40%"}}>Course Title: {this.state.course.title}</h2>
                 <hr/>
-                {modules}
+                <ModuleList course={this.state.course}/>
             </div>
         );
     }
