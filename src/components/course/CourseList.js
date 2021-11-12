@@ -5,10 +5,17 @@ import {Link} from "react-router-dom";
 function CourseRow({course, deleteCourse}){
     return(
         <tr>
-            <td><Link to={`/course/${course.id}`}>{course.title}</Link></td>
-            <td>created at: {course.created}</td>
-            <td>last updated at: {course.modified}</td>
-            <td><button className="btn btn-primary" onClick={()=>deleteCourse(course.id)}>delete</button></td>
+            <td>{course.title}</td>
+            <td>{course.owner}</td>
+            <td>
+                {new Intl.DateTimeFormat('en-US',{year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(course.created)))}
+            </td>
+            <td>
+                {new Intl.DateTimeFormat('en-US', {year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(course.modified)))}
+            </td>
+            <td>{course.description}</td>
+            <td><Link to={`/course/${course.id}`}><button className="btn btn-primary" onClick={()=>deleteCourse(course.id)}>Details</button></Link></td>
+            <td><button className="btn btn-danger" onClick={()=>deleteCourse(course.id)}>delete</button></td>
         </tr>   
     );
   }
@@ -19,8 +26,10 @@ export default function CourseList({courses, deleteCourse}){
             <thead>
                 <tr>
                 <th>Title</th>
+                <th>Owner</th>
                 <th>created</th>
                 <th>modified</th>
+                <th>Description</th>
                 </tr>
             </thead>
             <tbody>

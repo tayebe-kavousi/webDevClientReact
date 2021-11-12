@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import CourseService from "../../services/CourseService";
 import ModuleList from "./modules/ModuleList";
 
+
 export default class CourseEditor extends Component {
     constructor(props){
         super(props);
         this.state = {
             course:{
+                title:"",
                 modules:[{
                     lessons:[{
                         topics:[]
@@ -22,9 +24,14 @@ export default class CourseEditor extends Component {
     render(){
         return (
             <div className="container-fluid">
-                <h2 style={{"margin-left":"40%"}}>Course Title: {this.state.course.title}</h2>
-                <hr/>
-                <ModuleList course={this.state.course}/>
+            <div className="d-flex flex-row align-items-center">
+                <div className="p-2">
+                    <h2>Course {this.state.course.title}</h2>
+                </div>  
+                <div className="p-2"> 
+                    <ModuleList course={this.state.course}/>
+                </div>
+            </div>
             </div>
         );
     }

@@ -11,7 +11,8 @@ export default class Course extends React.Component{
             newCourse: {
                 title: "",
                 owner: "",
-                imgURL: ""
+                imgURL: "",
+                description: ""
             },
             courses: []
         };
@@ -44,6 +45,12 @@ export default class Course extends React.Component{
             this.setState({newCourse: {
                 ...this.state.newCourse,
                 imgURL: event.target.value,
+            }});
+        } else if(event.target.id === "newCourseDescription"){
+            console.log(event.target.value);
+            this.setState({newCourse: {
+                ...this.state.newCourse,
+                description: event.target.value,
             }});
         }
     }
@@ -87,6 +94,14 @@ export default class Course extends React.Component{
                         id="newCourseImgURL" 
                         name="newCourseImgURL" 
                         placeholder="Image URL" 
+                        className="form-control"
+                        onChange={this.handleInputChange}
+                    />
+                    <input 
+                        type="text" 
+                        id="newCourseDescription" 
+                        name="newCourseDescription" 
+                        placeholder="Description" 
                         className="form-control"
                         onChange={this.handleInputChange}
                     />
