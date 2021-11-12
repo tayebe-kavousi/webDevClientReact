@@ -17,24 +17,23 @@ export default class LessonTabs extends React.Component{
     }
     render(){
         const module = this.props.module;
-        const showLessons = module.lessons.length > 0 ?
-            <div>
-                <h5>{module.lessons.length} Lessons for {module.title}</h5>
-                <ul className="nav nav-tabs">
-                    {module.lessons.map((lesson, i) => {
-                        return(
-                            <li className="nav-item" key={i} onClick={()=>this.selectLesson(i)}>
-                                <a className="nav-link" aria-current="page" href="#">{lesson.title}</a>
-                            </li>
-                        )})}
-                </ul>
-                <TopicPills lesson={module.lessons[this.state.selectedLessonIndex]} /> 
-            </div> :
-            <h6> No Lessons Found !</h6>
         return(
-            <div> 
-                {showLessons}
-            </div>
+            module.lessons.length > 0 ?
+                <>
+                    <div className="p-2">
+                        <h5>{module.lessons.length} Lessons for {module.title}</h5>
+                        <ul className="list-group">
+                            {module.lessons.map((lesson, i) => 
+                                <li className="list-group-item" key={i} onClick={()=>this.selectLesson(i)}>{lesson.title}</li>
+                            )}
+                        </ul>
+                    </div>
+                    <TopicPills lesson={module.lessons[this.state.selectedLessonIndex]} /> 
+                </> 
+            :
+                <div className="p-2">
+                    <h6> No Lessons Found !</h6>
+                </div>
         );
     }
 }
