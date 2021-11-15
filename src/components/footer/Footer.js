@@ -50,16 +50,16 @@ function Footer() {
                 </div>
             </section>
             <section className="text-center mb-5">
-                <a href="" className="text-white me-4">
+                <a href="https://github.com/tayebe-kavousi" className="text-white me-4">
                 <FaGithubAlt className="socialIcon"/>
                 </a>
-                <a href="" className="text-white me-4">
+                <a href="https://www.linkedin.com/in/teya-kavousi/" className="text-white me-4">
                 <FaLinkedinIn className="socialIcon"/>
                 </a>
-                <a href="" className="text-white me-4">
+                <a href="tayebekavousi68@gmail.com" className="text-white me-4">
                 <SiGmail className="socialIcon"/>
                 </a>
-                <a href="" className="text-white me-4">
+                <a href="https://twitter.com/KavousiTayebe" className="text-white me-4">
                 <FaTwitter className="socialIcon"/>
                 </a>
             </section>

@@ -12,9 +12,13 @@ class UserService {
                 body: JSON.stringify(user),
                 credentials:"include"
             });
-            return await request.json(); 
+            if(request.status === 200){
+                return await request.json();
+            } else {
+                throw new Error("Something went wrong, please try again");
+            }
         } catch(e){
-            console.log(e)
+            console.log("ERROR!:",e)
         }
     }
 

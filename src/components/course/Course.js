@@ -1,5 +1,4 @@
 import React from 'react';
-import CourseCard from './CourseCard';
 import CourseList from './CourseList';
 import CourseService from '../../services/CourseService';
 
@@ -116,7 +115,6 @@ export default class Course extends React.Component{
                 </div>
                 <h1>Course List</h1>
                 <CourseList courses={this.state.courses} deleteCourse={this.deleteCourse}/>
-                <CourseCard courses={this.state.courses} deleteCourse={this.deleteCourse}/>
             </div>
         );
     }

@@ -11,6 +11,7 @@ import Navbar from './navbar/Navbar.js';
 import Home from './home/Home';
 import Footer from './footer/Footer';
 import Admin from './user/Admin';
+import Profile from './user/Profile';
 
 export default class Main extends Component {
   render(){
@@ -28,6 +29,7 @@ export default class Main extends Component {
               <Route path="/Login" component={Login}/>
               <Route path="/Register" component={Register}/>
               <Route path="/Admin" component={Admin}/>
+              <Route path="/Profile/:id" component={Profile}/>
               <Redirect to='/Home'/>
             </Switch>
             <Footer />

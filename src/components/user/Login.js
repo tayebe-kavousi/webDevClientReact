@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserService from "../../services/UserService";
+import { Link } from "react-router-dom";
 
 
 export default class Login extends Component{
@@ -9,6 +10,7 @@ export default class Login extends Component{
         this.state = {
             username:"",
             password:"",
+            isLogged:false,
             user:{}
         }
         this.handleSigIn = this.handleSigIn.bind(this);
@@ -31,9 +33,16 @@ export default class Login extends Component{
             "username":this.state.username,
             "password":this.state.password
         };
-        this.setState({user:user});
         this.userService.login(user)
-        .then((result) =>console.log(result));
+        .then (result => {
+           
+                this.setState({user:user});
+                this.setState({
+                    isLogged : true
+                })
+                this.props.history.push(`./profile/${result.id}`);
+            
+        })
     }
 
     render(){
@@ -62,6 +71,7 @@ export default class Login extends Component{
                 </div>
                 <div>
                     <button 
+                        to={`/profile/:${this.state.username}`}
                         type="button"
                         id="loginBtn"
                         className="btn btn-primary wide-btn"
@@ -70,8 +80,9 @@ export default class Login extends Component{
                     </button>
                 </div>
                 <div className="flex-container margined-div">
-                    <a href="#">Forget password?</a>
-                    <a href="../register/register.template.client.html">Sign Up</a>
+                    <hr />
+                    <p>New user?</p>
+                    <Link to="./register"><button className="btn btn-primary">Sign Up</button></Link>
                 </div>
             </div>
         );

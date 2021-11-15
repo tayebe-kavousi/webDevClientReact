@@ -14,7 +14,7 @@ function CourseRow({course, deleteCourse}){
                 {new Intl.DateTimeFormat('en-US', {year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(course.modified)))}
             </td>
             <td>{course.description}</td>
-            <td><Link to={`/course/${course.id}`}><button className="btn btn-primary" onClick={()=>deleteCourse(course.id)}>Details</button></Link></td>
+            <td><Link to={`/course/${course.id}`}><button className="btn btn-primary">Details</button></Link></td>
             <td><button className="btn btn-danger" onClick={()=>deleteCourse(course.id)}>delete</button></td>
         </tr>   
     );

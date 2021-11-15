@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import UserService from "../../services/UserService";
+import {Link} from "react-router-dom";
 
 
 export default class Register extends Component{
@@ -113,7 +114,9 @@ export default class Register extends Component{
                     </button>
                 </div>
                 <div className="margined-div">
-                    <p>Already have an account? <a href="../login/login.template.client.html">Login</a></p>
+                    <hr/>
+                    <p>Already have an account?</p>
+                    <Link to="./login"><button className="btn btn-primary">Login</button></Link>
                 </div>          
             </div>
         );
