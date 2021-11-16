@@ -3,6 +3,7 @@ export const ADD_COURSE = "ADD_COURSE";
 export const EDIT_COURSE = "EDIT_COURSE";
 export const DELETE_COURSE = "DELETE_COURSE";
 export const DELETE_WIDGET = 'DELETE_WIDGET';
+export const ADD_WIDGET = 'ADD_WIDGET';
 
 export const FIND_USERS = "FIND_USERS";
 export const LOGIN_USER = "LOGIN_USER";

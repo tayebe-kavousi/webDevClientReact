@@ -15,6 +15,13 @@ const widgetReducer  = (state=initialState, action)=>{
             return {
                 widgets: state.widgets.filter(widget => widget.id !== action.payload)
             };
+        case ActionTypes.ADD_WIDGET:
+            return {
+                widgets: [
+                    action.payload,
+                    ...state.widgets
+                ]
+            };
         default:
             return state;
     }
