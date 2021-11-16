@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route,Redirect, Switch} from 'react-router-dom'
-import Course from "./course/Course";
+import {BrowserRouter as Router, Route,Redirect, Switch, Link} from 'react-router-dom'
+import Course from "./course/courses/Course";
 import ModuleList from "./course/modules/ModuleList";
 import LessonTabs from './course/lessons/LessonTabs';
 import TopicPills from './course/topics/TopicPills';
-import CourseEditor from './course/CourseEditor';
+import CourseEditor from './course/courses/CourseEditor';
 import Login from './user/Login';
 import Register from './user/Register';
 import Navbar from './navbar/Navbar.js';
@@ -12,6 +12,7 @@ import Home from './home/Home';
 import Footer from './footer/Footer';
 import Admin from './user/Admin';
 import Profile from './user/Profile';
+import WidgetListContainer from './course/widgets/WidgetListContainer'
 
 export default class Main extends Component {
   render(){
@@ -19,6 +20,13 @@ export default class Main extends Component {
       <Router>
         <div className="container-fluid">
             <Navbar/>
+            <br/>
+            <br/>
+            <br/>
+            <Link to="/Widgets">Widget List</Link>
+            <br/>
+            <br/>
+            <br/>
             <Switch>
               <Route path="/Home" component={Home}/>                        
               <Route path="/TopicPills" component={TopicPills}/>                        
@@ -30,6 +38,7 @@ export default class Main extends Component {
               <Route path="/Register" component={Register}/>
               <Route path="/Admin" component={Admin}/>
               <Route path="/Profile/:id" component={Profile}/>
+              <Route path="/Widgets" component={WidgetListContainer}/>
               <Redirect to='/Home'/>
             </Switch>
             <Footer />
