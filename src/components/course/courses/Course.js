@@ -25,32 +25,33 @@ export default class Course extends React.Component{
     }
 
     handleInputChange= (event)=>{
-        if(event.target.id === "newCourseTitle"){
-            console.log(event.target.value);
-            this.setState({newCourse: {
-                ...this.state.newCourse,
-                title: event.target.value,
-                created: new Date(),
-                modified: new Date()
-            }});
-        } else if(event.target.id === "newCourseOwner"){
-            console.log(event.target.value);
-            this.setState({newCourse: {
-                ...this.state.newCourse,
-                owner: event.target.value,
-            }});
-        } else if(event.target.id === "newCourseImgURL"){
-            console.log(event.target.value);
-            this.setState({newCourse: {
-                ...this.state.newCourse,
-                imgURL: event.target.value,
-            }});
-        } else if(event.target.id === "newCourseDescription"){
-            console.log(event.target.value);
-            this.setState({newCourse: {
-                ...this.state.newCourse,
-                description: event.target.value,
-            }});
+        switch(event.target.id){
+            case "newCourseTitle" :
+                this.setState({newCourse: {
+                    ...this.state.newCourse,
+                    title: event.target.value,
+                    created: new Date(),
+                    modified: new Date()
+                }});
+                break;
+            case "newCourseOwner" :
+                this.setState({newCourse: {
+                    ...this.state.newCourse,
+                    owner: event.target.value,
+                }});
+                break;
+            case "newCourseImgURL" :
+                this.setState({newCourse: {
+                    ...this.state.newCourse,
+                    imgURL: event.target.value,
+                }});
+                break;
+            case "newCourseDescription" :
+                this.setState({newCourse: {
+                    ...this.state.newCourse,
+                    description: event.target.value,
+                }});
+                break;
         }
     }
     

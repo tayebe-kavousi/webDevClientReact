@@ -8,10 +8,12 @@ function CourseRow({course, deleteCourse}){
             <td>{course.title}</td>
             <td>{course.owner}</td>
             <td>
-                {new Intl.DateTimeFormat('en-US',{year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(course.created)))}
+                {/* {new Intl.DateTimeFormat('en-US',{year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(course.created)))} */}
+                {course.created}
             </td>
             <td>
-                {new Intl.DateTimeFormat('en-US', {year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(course.modified)))}
+                {/* {new Intl.DateTimeFormat('en-US', {year: 'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(course.modified)))} */}
+                {course.modified}
             </td>
             <td>{course.description}</td>
             <td><Link to={`/course/${course.id}`}><button className="btn btn-primary">Details</button></Link></td>
