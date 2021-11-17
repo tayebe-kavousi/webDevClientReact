@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CourseService from '../../services/CourseService'; 
-import CourseCard from "../course/courses/CourseCard";
+import CourseCard from "../course/courses/CourseCardComponent";
 
 
 export default class Home extends Component {

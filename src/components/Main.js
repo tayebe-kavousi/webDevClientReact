@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route,Redirect, Switch, Link} from 'react-router-dom'
-import Course from "./course/courses/Course";
-import ModuleList from "./course/modules/ModuleList";
-import LessonTabs from './course/lessons/LessonTabs';
-import TopicPills from './course/topics/TopicPills';
-import CourseEditor from './course/courses/CourseEditor';
+import Course from "./course/courses/CourseComponent";
+import ModuleList from "./course/modules/ModuleListComponent";
+import LessonTabs from './course/lessons/LessonTabsComponent';
+import TopicPills from './course/topics/TopicPillsComponent';
+import CourseEditor from './course/courses/CourseEditorComponent';
 import Login from './user/Login';
 import Register from './user/Register';
 import Navbar from './navbar/Navbar.js';

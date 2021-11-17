@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CourseService from "../../../services/CourseService";
-import ModuleList from "../modules/ModuleList";
+import ModuleList from "../modules/ModuleListComponent";
 
 
 export default class CourseEditor extends Component {

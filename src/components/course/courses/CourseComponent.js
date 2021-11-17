@@ -1,7 +1,13 @@
 import React from 'react';
-import CourseList from './CourseList';
+import CourseList from './CourseListComponent';
 import CourseService from  "../../../services/CourseService";
 
+// export default function Course({courses}){
+//     return (
+//         <div>
+//             {courses.length}
+//         </div>
+//     )
 export default class Course extends React.Component{
     constructor() {
         super();
@@ -109,7 +115,8 @@ export default class Course extends React.Component{
                         <button
                             className="btn btn-primary" 
                             type="button"
-                            onClick={this.createCourse}>
+                            onClick={this.createCourse}
+                            >
                             Add New Course
                         </button>
                     </div>

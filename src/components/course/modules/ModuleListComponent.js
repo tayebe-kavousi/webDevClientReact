@@ -1,5 +1,5 @@
 import React from 'react';
-import LessonTabs from "../lessons/LessonTabs";
+import LessonTabs from "../lessons/LessonTabsComponent";
 
 function  ModuleListItem ({module, selectModule, index}){
     return(               

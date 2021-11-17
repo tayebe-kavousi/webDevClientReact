@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import WidgetListComponent from './WidgetListComponent';
-import * as ActionTypes from '../../../actionTypes'
+import * as ActionTypes from '../../../actionTypes';
 
 
 const stateToPropertyMapper = state => (
@@ -13,11 +13,15 @@ const dispatcherToPropertyMapper = dispatch => (
     {
         deleteWidget : widgetId => dispatch({
             type: ActionTypes.DELETE_WIDGET,
-            payload: widgetId
+            widgetId: widgetId
         }),
         addWidget : (widget) => dispatch({
             type: ActionTypes.ADD_WIDGET,
-            payload: widget
+            widget: widget
+        }),
+        updateWidget: (newWidget) => dispatch({
+            type: ActionTypes.UPDATE_WIDGET,
+            widget:newWidget
         })
     }
 )
