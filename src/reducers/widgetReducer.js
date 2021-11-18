@@ -2,7 +2,9 @@ import * as ActionTypes from '../actionTypes';
 
 let initialState = {
     widgets:[
-        {title: "widget 1", id:1, widgetType:'WT1'},
+        {title: "Youtube Widget", id:6, widgetType:'YOUTUBE', src:"wA_whMl_psA"},
+        {title: "List Widget", id:5, widgetType:'LIST', listItems:"item1\nitem2\nitem3", ordered:true},
+        {title: "Heading meow Widget", id:1, widgetType:'HEADING'},
         {title: "widget 2", id:2, widgetType:'WT2'},
         {title: "widget 3", id:3, widgetType:'WT3'},
         {title: "widget 4", id:4, widgetType:'WT1'}
@@ -26,8 +28,7 @@ const widgetReducer  = (state=initialState, action)=>{
                 return{
                     widgets: state.widgets.map(widget =>{
                         if(widget.id === action.widget.id){
-                            widget.widgetType = action.widget.widgetType;
-                            return widget;
+                            return action.widget;
                             
                         }else{
                             return widget;
