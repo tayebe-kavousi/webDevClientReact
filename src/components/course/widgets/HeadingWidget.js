@@ -20,7 +20,7 @@ function HeadingWidget({widget, updateWidget}) {
            <select 
               ref={node => size= node} 
               onChange={()=>{
-                widget.size = size.value;
+                widget.size = parseInt(size.value);
                 updateWidget(widget); 
               }}
               className="form-control" 
@@ -33,10 +33,10 @@ function HeadingWidget({widget, updateWidget}) {
            </select>
                 <h4>Preview: </h4>
            <div style={{backgroundColor: "rgba(0,200,200,0.3)", "margin":"1% 2% ", padding:"20px", width:"50%"}}> 
-                {widget.size === "1" && <h1>{widget.text}</h1> }
-                {widget.size === "2" && <h2>{widget.text}</h2> }
-                {widget.size === "3" && <h3>{widget.text}</h3> }
-                {widget.size === "4" && <h4>{widget.text}</h4> }
+                {widget.size === 1 && <h1>{widget.text}</h1> }
+                {widget.size === 2 && <h2>{widget.text}</h2> }
+                {widget.size === 3 && <h3>{widget.text}</h3> }
+                {widget.size === 4 && <h4>{widget.text}</h4> }
            </div>
         </div>
     )

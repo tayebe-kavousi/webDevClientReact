@@ -22,6 +22,9 @@ const dispatcherToPropertyMapper = dispatch => (
         updateWidget: (newWidget) => dispatch({
             type: ActionTypes.UPDATE_WIDGET,
             widget:newWidget
+        }),
+        saveWidgets: () => dispatch({
+            type: ActionTypes.SAVE_WIDGETS
         })
     }
 )

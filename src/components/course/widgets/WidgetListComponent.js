@@ -6,12 +6,16 @@ import WidgetType2 from './WidgetType2';
 import WidgetType3 from './WidgetType3';
 import YoutubeWidget from './YoutubeWidget';
 
-function WidgetListComponent({widgets, deleteWidget, addWidget, updateWidget}) {
+function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, updateWidget}) {
     let newWidgetTitle;
     let newWidgetType;
     return (
         <div>
-            <h1>Widget List Length : {widgets.length}</h1>
+            <button 
+                className="btn btn-primary float-right"
+                onClick = {saveWidgets}
+            >Save</button>
+            <h1>Widget List</h1>
             <ul className="list-group">
             <li className="list-group-item">
                 <input ref={node => newWidgetTitle = node} className="form-control"/>
