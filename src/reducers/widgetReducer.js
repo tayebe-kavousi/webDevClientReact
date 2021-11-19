@@ -3,9 +3,9 @@ import {WIDGET_API_URL} from '../URL';
 
 let initialState = {
     widgets:[
-        // {title: "Youtube Widget", id:6, widgetType:'YOUTUBE', src:"wA_whMl_psA"},
-        // {title: "List Widget", id:5, widgetType:'LIST', listItems:"item1\nitem2\nitem3", ordered:true},
-        // {title: "Heading meow Widget", id:1, widgetType:'HEADING'},
+        {title: "Youtube Widget", id:6, widgetType:'YOUTUBE', src:"wA_whMl_psA"},
+        {title: "List Widget", id:5, widgetType:'LIST', listItems:"item1\nitem2\nitem3", ordered:true},
+        {title: "Heading meow Widget", id:1, widgetType:'HEADING', text:"my little lovely Venice", size:2, },
     ]
 };
 
