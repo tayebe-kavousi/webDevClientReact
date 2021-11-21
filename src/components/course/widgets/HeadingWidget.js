@@ -5,7 +5,8 @@ function HeadingWidget({widget, updateWidget}) {
   let size; 
     return (
         <div>
-            <h1> HEADING WIDGET  </h1>
+            <h4> HEADING WIDGET</h4>
+            <h4>{widget.title}</h4>
            <label htmlFor="text">Heading Text: </label>
            <input 
                 ref={node => text= node} 
