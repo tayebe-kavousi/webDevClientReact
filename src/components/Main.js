@@ -12,7 +12,10 @@ import Home from './home/Home';
 import Footer from './footer/Footer';
 import Admin from './user/Admin';
 import Profile from './user/Profile';
-import WidgetListContainer from './course/widgets/WidgetListContainer'
+import WidgetListContainer from './course/widgets/WidgetListContainer';
+import HeadingWidget from './course/widgets/HeadingWidget';
+import YoutubeWidget from './course/widgets/YoutubeWidget';
+import ListWidget from './course/widgets/ListWidget';
 
 export default class Main extends Component {
   render(){
@@ -39,6 +42,9 @@ export default class Main extends Component {
               <Route path="/Admin" component={Admin}/>
               <Route path="/Profile/:id" component={Profile}/>
               <Route path="/Widgets" component={WidgetListContainer}/>
+              <Route path="/ListWidget" component={ListWidget}/>
+              <Route path="/YoutubeWidget" component={YoutubeWidget}/>
+              <Route path="/HeadingWidget" component={HeadingWidget}/>
               <Redirect to='/Home'/>
             </Switch>
             <Footer />
