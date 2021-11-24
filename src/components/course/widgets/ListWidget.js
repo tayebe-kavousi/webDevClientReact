@@ -4,9 +4,13 @@ function ListWidget({widget, updateWidget}) {
     let text;
     let ordered;
     return (
-        <div>
-            <h3>List Widget</h3>
-            <textarea 
+        <>
+            <div className="col-sm">Type: List Widget </div>
+            <div className="col-sm">Title: {widget.title}</div>
+            <div className="col-sm">List items: {widget.listItems.split('\n').join(", ")}</div>
+            <div className="col-sm">{widget.ordered?"Ordered":"Unordered"}</div>
+      
+            {/* <textarea 
                 ref={node => text = node} 
                 className="form-control"
                 onChange={
@@ -27,18 +31,9 @@ function ListWidget({widget, updateWidget}) {
                     checked={widget.ordered}
                 /> Ordered
             </label>
-            <h4>Preview</h4>
-            {!widget.ordered &&
-                <ul>
-                    {widget.listItems.split('\n').map((item, index)=><li key={index}>{item}</li>)}
-                </ul>
-            }
-            {widget.ordered &&
-                <ol>
-                    {widget.listItems.split('\n').map((item, index)=><li key={index}>{item}</li>)}
-                </ol>
-            }
-        </div>
+            */}
+            
+        </>
     )
 }
 

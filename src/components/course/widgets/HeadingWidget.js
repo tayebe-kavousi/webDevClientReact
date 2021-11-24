@@ -1,13 +1,16 @@
 import React from 'react'
+import WidgetListComponent from './WidgetListComponent';
 
 function HeadingWidget({widget, updateWidget}) {
   let text;
   let size; 
     return (
-        <div>
-            <h4> HEADING WIDGET</h4>
-            <h4>{widget.title}</h4>
-           <label htmlFor="text">Heading Text: </label>
+      <>
+            <div className="col-sm">Type: Heading Widget </div>
+            <div className="col-sm">Title: {widget.title}</div>
+            <div className="col-sm">Text: {widget.text}</div>
+            <div className="col-sm">size: {widget.size}</div> 
+           {/* <label htmlFor="text">Heading Text: </label>
            <input 
                 ref={node => text= node} 
                 id="text" className="form-control" 
@@ -32,14 +35,14 @@ function HeadingWidget({widget, updateWidget}) {
                <option value="3">Heading 3</option>
                <option value="4">Heading 4</option>
            </select>
-                <h4>Preview: </h4>
-           <div style={{backgroundColor: "rgba(0,200,200,0.3)", "margin":"1% 2% ", padding:"20px", width:"50%"}}> 
-                {widget.size === 1 && <h1>{widget.text}</h1> }
-                {widget.size === 2 && <h2>{widget.text}</h2> }
-                {widget.size === 3 && <h3>{widget.text}</h3> }
-                {widget.size === 4 && <h4>{widget.text}</h4> }
-           </div>
-        </div>
+           <div> 
+                      {widget.size === 1 && <h1>{widget.text}</h1> }
+                      {widget.size === 2 && <h2>{widget.text}</h2> }
+                      {widget.size === 3 && <h3>{widget.text}</h3> }
+                      {widget.size === 4 && <h4>{widget.text}</h4> }
+                    </div> 
+            */} 
+        </>
     )
 }
 

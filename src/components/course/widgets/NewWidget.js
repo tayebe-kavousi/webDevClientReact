@@ -38,8 +38,9 @@ function Heading({addWidget}) {
             id: (new Date()).getTime(),
             widgetType:"HEADING",
             text: text.value,
-            size: size.value
+            size: parseInt(size.value)
         }
+        console.log(widget)
         addWidget(widget);
     }
     return(

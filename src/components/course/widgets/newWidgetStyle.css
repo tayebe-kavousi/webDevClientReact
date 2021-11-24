@@ -1,6 +1,13 @@
-.detailsElement{
+.showElement{
     display: block;
 }
 .hideElement{
     display: none;
+}
+.delete-container{
+    margin-bottom: 40px;
+}
+.widgets{
+    background-color: rgb(193, 216, 241);
+    margin-top: 5%;
 }
