@@ -77,8 +77,9 @@ function List({addWidget}) {
             id: (new Date()).getTime(),
             widgetType:"LIST",
             listItems: listItems.value,
-            ordered: ordered.value
+            ordered: ordered
         }
+        console.log(widget);
         addWidget(widget);
     }
     return(
@@ -86,9 +87,23 @@ function List({addWidget}) {
         <label htmlFor="title">Title: </label>
         <input id="title" ref={node => title = node} className="form-control"/>
         <textarea ref={node => listItems= node} className="form-control"></textarea>
-        <label htmlFor="order">
-            <input ref={node => ordered= node}type="checkbox"/> Ordered
-        </label>
+        {/* <label htmlFor="order">
+            <input ref={node => ordered= node} type="checkbox"/> Ordered
+        </label> */}
+        <div>
+                <input type="radio" value="ordered" name="newListOrdered"
+                    onClick = {() => {
+                        ordered = true;
+                        
+                    }}/>
+                <label htmlFor="order">Ordered</label>
+                <input type="radio" value="unordered" name="newListOrdered"
+                    onClick = {() => {
+                        ordered = false;
+                        
+                    }}/>
+                <label htmlFor="order">Unordered</label>
+            </div>
         <div className="d-grid gap-2 margined-top-bottom">
             <button className="btn btn-primary" onClick={handleClick}
                 > Add widget

@@ -11,16 +11,16 @@ function YoutubeWidget({widget, updateWidget}) {
             <input 
                     className="form-control"
                     ref={node => src = node} 
+                    id="URL" 
+                    className="control-form"
                     onChange={
                         () =>{
                             let i = src.value.split("/")[3];
-                            console.log(i);
                             widget.src = i;
                             updateWidget(widget);
                         }
                     }
-                    id="URL" 
-                    className="control-form"
+                    
                 />
             </div>
             <div className="col-sm">  
@@ -29,11 +29,13 @@ function YoutubeWidget({widget, updateWidget}) {
                     height="315" 
                     src= {`https://www.youtube.com/embed/${widget.src}`}
                     title="YouTube video player" 
-                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen>
                 </iframe>
                 </div>
-                {/*  */}  
+            <div className="col-sm">
+                <button></button>
+            </div> 
         </>
      
     )

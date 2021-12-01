@@ -4,28 +4,29 @@ import HeadingWidget from './HeadingWidget';
 import ListWidget from './ListWidget';
 import YoutubeWidget from './YoutubeWidget';
 import NewWidget from './NewWidget';
+import Preview from './Preview';
 import './newWidgetStyle.css'
 import * as AiIcons from "react-icons/ai";
 import * as SiIcons from "react-icons/si";
 
 function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, updateWidget}) {
-    // const [modalIsOpen,setModalIsOpen] = useState(false);
-    // const setModalIsOpenToTrue =()=>{
-    //     setModalIsOpen(true)
-    // }
-    // const setModalIsOpenToFalse =()=>{
-    //     setModalIsOpen(false)
-    // }
+    const [modalIsOpen,setModalIsOpen] = useState(false);
+    const setModalIsOpenToTrue =()=>{
+        setModalIsOpen(true)
+    }
+    const setModalIsOpenToFalse =()=>{
+        setModalIsOpen(false)
+    }
     
     return (
         <div className="container-fluid">
-            {/* <div>
+            <div>
                 <SiIcons.SiAddthis onClick={setModalIsOpenToTrue} style={{color: "blue" ,width:"40px"}}/>
                 <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)}>
                     <AiIcons.AiFillCloseSquare onClick={setModalIsOpenToFalse} style={{color: "blue", width:"40px"}} />
-                    <NewWidget addWidget={addWidget}/>
+                    <Preview widgets={widgets}/>
                 </Modal>
-            </div> */}
+            </div>
             <div className="row">
                 <NewWidget addWidget={addWidget}/>
             </div>
@@ -34,7 +35,7 @@ function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, upd
            </div>
             {widgets.map((widget,index)=>{
                 return(
-                    <div className="widgets">
+                    <div className="widgets" key={index}>
                         <div className="row justify-content-md-center"> 
                             {widget.widgetType === 'YOUTUBE' && <YoutubeWidget widget={widget} updateWidget={updateWidget}/>}
                             {widget.widgetType === 'HEADING' && <HeadingWidget widget={widget} updateWidget={updateWidget}/>}
