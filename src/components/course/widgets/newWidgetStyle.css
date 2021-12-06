@@ -1,13 +1,14 @@
 .showElement{
     display: block;
 }
+
 .hideElement{
     display: none;
 }
-.delete-container{
-    margin-bottom: 40px;
+
+div{
+    margin-bottom: 10px;
 }
-.widgets{
-    background-color: rgb(193, 216, 241);
-    margin-top: 5%;
+.modalPreview{
+    width: 60vw;
 }

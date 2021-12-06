@@ -81,28 +81,27 @@ function List({addWidget}) {
         }
         console.log(widget);
         addWidget(widget);
+        widget= {}
     }
     return(
     <div>
         <label htmlFor="title">Title: </label>
         <input id="title" ref={node => title = node} className="form-control"/>
         <textarea ref={node => listItems= node} className="form-control"></textarea>
-        {/* <label htmlFor="order">
-            <input ref={node => ordered= node} type="checkbox"/> Ordered
-        </label> */}
+        
         <div>
+            <label htmlFor="order">Ordered
                 <input type="radio" value="ordered" name="newListOrdered"
                     onClick = {() => {
-                        ordered = true;
-                        
+                        ordered = true;   
                     }}/>
-                <label htmlFor="order">Ordered</label>
+            </label>
+            <label htmlFor="order">Unordered
                 <input type="radio" value="unordered" name="newListOrdered"
                     onClick = {() => {
                         ordered = false;
-                        
-                    }}/>
-                <label htmlFor="order">Unordered</label>
+                }}/>
+            </label>
             </div>
         <div className="d-grid gap-2 margined-top-bottom">
             <button className="btn btn-primary" onClick={handleClick}
