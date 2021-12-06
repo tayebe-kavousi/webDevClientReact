@@ -7,7 +7,7 @@ export const DELETE_COURSE = "DELETE_COURSE";
 export const ADD_WIDGET = 'ADD_WIDGET';
 export const UPDATE_WIDGET = 'UPDATE_WIDGET';
 export const DELETE_WIDGET = 'DELETE_WIDGET';
-
+export const SAVE_WIDGETS = 'SAVE_WIDGETS';
 
 export const FIND_USERS = "FIND_USERS";
 

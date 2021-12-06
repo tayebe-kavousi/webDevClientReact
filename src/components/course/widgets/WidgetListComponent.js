@@ -1,51 +1,47 @@
-import React from 'react';
-import WidgetType1 from './WidgetType1';
-import WidgetType2 from './WidgetType2';
-import WidgetType3 from './WidgetType3';
+import React, {useState} from 'react';
+import {Modal,ModalBody, ModalHeader,Row} from 'reactstrap';
+import HeadingWidget from './HeadingWidget';
+import ListWidget from './ListWidget';
+import YoutubeWidget from './YoutubeWidget';
+import NewWidget from './NewWidget';
+import Preview from './Preview';
+import './newWidgetStyle.css'
+import * as FaIcons from "react-icons/fa";
 
-function WidgetListComponent({widgets, deleteWidget, addWidget, updateWidget}) {
-    let newWidgetTitle;
-    let newWidgetType;
+function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, updateWidget}) {
+    const [modalIsOpen,setModalIsOpen] = useState(false);
+    const setModalIsOpenToTrue =()=>{
+        setModalIsOpen(true)
+    }
+    const setModalIsOpenToFalse =()=>{
+        setModalIsOpen(false)
+    }
+    
     return (
-        <div>
-            <h1>Widget List Length : {widgets.length}</h1>
-            <ul className="list-group">
-            <li className="list-group-item">
-                <input ref={node => newWidgetTitle = node} className="form-control"/>
-                <select className="form-control" ref= {node => newWidgetType = node} >
-                    <option value="WT1">Widget Type 1</option>
-                    <option value="WT2">Widget Type 2</option>
-                    <option value="WT3">Widget Type 3</option>
-                </select>
-                <div className="d-grid gap-2 margined-top-bottom">
-                    <button className="btn btn-primary" onClick=
-                        {()=> 
-                            {
-                                let widget = {
-                                    title:newWidgetTitle.value,
-                                    id: (new Date()).getTime(),
-                                    widgetType: newWidgetType.value
-                                }
-                                newWidgetTitle.value= '';
-                                addWidget(widget)
-                            }
-                        }> Add widget
-                    </button>
-                </div>
-            </li>
-                {widgets.map((widget, index)=>
-                    <li key={index} className="list-group-item">
-                        <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>
-                            Delete
-                        </button>
-                        <div>
-                            {widget.widgetType === 'WT1' && <WidgetType1 widget={widget} updateWidget={updateWidget}/>}
-                            {widget.widgetType === 'WT2' && <WidgetType2 widget={widget} updateWidget={updateWidget}/>}
-                            {widget.widgetType === 'WT3' && <WidgetType3 widget={widget} updateWidget={updateWidget}/>}
-                        </div>
-                    </li>)}
-            </ul>
-        </div>
+        <div className="container-fluid">
+            <NewWidget addWidget={addWidget}/>
+            <div>
+                <button onClick={setModalIsOpenToTrue} className="btn btn-primary" >Preview</button>
+                <Modal size="lg" style={{maxWidth: '700px', width: '90%'}} isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)}>
+                    <ModalHeader>
+                        <FaIcons.FaWindowClose onClick={setModalIsOpenToFalse} style={{color: "blue" ,width:"40px"}}/>
+                    </ModalHeader>
+                    <ModalBody>
+                        <Preview widgets={widgets} className="previewModal"/>
+                    </ModalBody>
+                </Modal>
+            </div>
+            <div className="row">
+            {widgets.map((widget)=>{
+                return(
+                    <div className="col-sm-3" style={{width:"33%"}}>
+                        {widget.widgetType === 'YOUTUBE' && <YoutubeWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
+                        {widget.widgetType === 'HEADING' && <HeadingWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
+                        {widget.widgetType === 'LIST' && <ListWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>} 
+                    </div>     
+                )})}    
+            </div>
+            </div>
     )
 }
 

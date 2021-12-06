@@ -1,0 +1,14 @@
+.showElement{
+    display: block;
+}
+
+.hideElement{
+    display: none;
+}
+
+div{
+    margin-bottom: 10px;
+}
+.modalPreview{
+    width: 60vw;
+}
