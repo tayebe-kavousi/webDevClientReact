@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal,ModalBody, ModalHeader} from 'reactstrap';
+import {Modal,ModalBody, ModalHeader,Row} from 'reactstrap';
 import HeadingWidget from './HeadingWidget';
 import ListWidget from './ListWidget';
 import YoutubeWidget from './YoutubeWidget';
@@ -19,13 +19,8 @@ function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, upd
     
     return (
         <div className="container-fluid">
-            
-            <div className="row">
-                <NewWidget addWidget={addWidget}/>
-            </div>
-            <div className="row">
-           </div>
-           <div>
+            <NewWidget addWidget={addWidget}/>
+            <div>
                 <button onClick={setModalIsOpenToTrue} className="btn btn-primary" >Preview</button>
                 <Modal size="lg" style={{maxWidth: '700px', width: '90%'}} isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)}>
                     <ModalHeader>
@@ -36,16 +31,16 @@ function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, upd
                     </ModalBody>
                 </Modal>
             </div>
-            {widgets.map((widget,index)=>{
+            <div className="row">
+            {widgets.map((widget)=>{
                 return(
-                    <div className="widgets" key={index}>
-                        <div className="row justify-content-md-center"> 
-                            {widget.widgetType === 'YOUTUBE' && <YoutubeWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
-                            {widget.widgetType === 'HEADING' && <HeadingWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
-                            {widget.widgetType === 'LIST' && <ListWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
-                        </div>
-                    </div>   
+                    <div className="col-sm-3" style={{width:"33%"}}>
+                        {widget.widgetType === 'YOUTUBE' && <YoutubeWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
+                        {widget.widgetType === 'HEADING' && <HeadingWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
+                        {widget.widgetType === 'LIST' && <ListWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>} 
+                    </div>     
                 )})}    
+            </div>
             </div>
     )
 }

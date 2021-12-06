@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {Card, CardFooter,CardHeader,CardBody} from 'reactstrap';
 import './newWidgetStyle.css';
 
 function HeadingWidget({widget, updateWidget,deleteWidget, saveWidgets}) {
@@ -8,17 +9,23 @@ function HeadingWidget({widget, updateWidget,deleteWidget, saveWidgets}) {
   }
   let text,size; 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">Type: Heading Widget </div>
-        <div className="col">Title: {widget.title}</div>
+    
+    <Card>
+      <CardHeader>
+        <h4>Heading Widget </h4>
+        </CardHeader>
+        <CardBody>
+        <h6>Title: {widget.title}</h6>
         <div className="col">Text: {widget.text}</div>
         <div className="col">size: {widget.size}</div>
+        </CardBody>
+        <CardFooter>
         <div className="col"> 
           <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>Delete</button>
           <button className="btn btn-primary" onClick={()=>toggleEditIsOpenToTrue()}> Edit</button>
         </div>
-      </div>
+        </CardFooter>
+    
       <div className="row" className={editIsOpen?"showElement":"hideElement"}>
         <div className="col">
           <label htmlFor="text">Heading Text: </label>
@@ -57,7 +64,7 @@ function HeadingWidget({widget, updateWidget,deleteWidget, saveWidgets}) {
                     <button className="btn btn-primary float-right" onClick ={saveWidgets}> Save </button> 
                 </div>  
       </div>
-    </div>
+    </Card>
   )
 }
 

@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {Card, CardFooter,CardHeader,CardBody} from 'reactstrap';
 import './newWidgetStyle.css';
 
 function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
@@ -9,18 +10,22 @@ function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
     
     let title,text;
     return (
-        <div className="container">
-            <div className="row"> 
-                <div className="col">Type: List Widget </div>
-                <div className="col">Title: {widget.title}</div>
+        
+        <Card>
+            <CardHeader> 
+                <h4>List Widget </h4>
+            </CardHeader>
+            <CardBody>
+                <h6>Title: {widget.title}</h6>
                 <div className="col">List items: {widget.listItems.split('\n').join(", ")}</div>
                 <div className="col">{widget.ordered?"ordered":"unordered"}</div>
-                <div className="col"> 
-                    <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>Delete</button>
-                    <button className="btn btn-primary" onClick={()=>toggleEditIsOpenToTrue()}> Edit</button>
-                </div>
+            </CardBody>
+            <CardFooter>
+            <div className="col"> 
+                <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>Delete</button>
+                <button className="btn btn-primary" onClick={()=>toggleEditIsOpenToTrue()}> Edit</button>
             </div>
-            
+            </CardFooter>
             <div className="row" className={editIsOpen?"showElement":"hideElement"}>
                 <div className="col">
                     <label htmlFor="title">Title</label>
@@ -45,7 +50,7 @@ function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
                         name="listItems"
                         id="listItems"
                         ref={node => text = node} 
-                        className="col form-control"
+                        className="form-control"
                         placeholder={widget.listItems}
                         onChange={
                             () => {
@@ -64,6 +69,7 @@ function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
                             }}/>
                         Ordered
                     </label>
+                    <br/>
                     <label htmlFor="unordered">
                         <input type="radio" id="unordered" value="unordered" name={`ordered${widget.title}`} defaultChecked={!widget.ordered?"checked":""}
                             onClick = {() => {
@@ -76,10 +82,9 @@ function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
                 <div className="col">
                     <button className="btn btn-primary float-right" onClick ={saveWidgets}> Save </button> 
                 </div>  
-            </div>
-            
-            
-        </div>
+            </div>  
+        </Card>
+    
     )
 }
 

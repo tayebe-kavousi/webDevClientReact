@@ -1,4 +1,5 @@
 import React ,{useState} from 'react';
+import {Card, CardFooter,CardHeader,CardBody} from 'reactstrap';
 import './newWidgetStyle.css';
 
 function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
@@ -8,11 +9,12 @@ function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
     }
     let src, title;
     return (
-        <div className="container">
-            <div className="row"> 
-                <div className="col-sm">Type: Youtube Widget </div>
-                <div className="col-sm">Title: {widget.title}</div>
-                <div className="col-sm">  
+        <Card>
+            <CardHeader> 
+                <h4>Youtube Widget </h4>
+                </CardHeader>
+                <CardBody>  
+                    <h6>{widget.title}</h6>
                     <iframe 
                         width="560" 
                         height="315" 
@@ -21,12 +23,14 @@ function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
                         frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowFullScreen>
                     </iframe>
-                </div>
+                </CardBody>
+                <CardFooter>
                 <div className="col"> 
                     <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>Delete</button>
                     <button className="btn btn-primary" onClick={()=>toggleEditIsOpenToTrue()}> Edit</button>
                 </div>
-            </div>
+                </CardFooter>
+           
             <div className="row" className={editIsOpen?"showElement":"hideElement"}> 
                 <div className="col">
                     <label htmlFor="title">Title</label>
@@ -35,6 +39,8 @@ function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
                         id="title" 
                         type="text" 
                         ref={(node)=>title=node} 
+                        placeholder={widget.title}
+                        className="form-control"
                         onChange={
                             () =>{
                                 widget.title = title.value;
@@ -45,10 +51,9 @@ function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
                 <div className="col">
                     <label htmlFor="URL">Address</label>
                     <input 
-                        className="form-control"
+                       className="form-control"
                         ref={node => src = node} 
                         id="URL" 
-                        className="control-form"
                         placeholder={`https://www.youtube.com/embed/${widget.src}`}
                         onChange={
                             () =>{
@@ -62,8 +67,7 @@ function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
                     <button className="btn btn-primary float-right" onClick ={saveWidgets}> Save </button> 
                 </div>  
             </div>
-        </div>
-     
+        </Card>
     )
 }
 

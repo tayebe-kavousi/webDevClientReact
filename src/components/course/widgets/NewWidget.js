@@ -19,7 +19,7 @@ function Youtube({addWidget}){
                 <label htmlFor="title">Title: </label>
                 <input id="title" ref={node => title = node} className="form-control"/>
                 <label htmlFor="URL">URL:</label>
-                <input ref={node => src = node} id="URL" className="control-form"/>
+                <input ref={node => src = node} id="URL" className="form-control"/>
                 <div className="d-grid gap-2 margined-top-bottom">
                     <button className="btn btn-primary" onClick={handleClick}
                         > Add widget
@@ -88,25 +88,19 @@ function List({addWidget}) {
         <label htmlFor="title">Title: </label>
         <input id="title" ref={node => title = node} className="form-control"/>
         <textarea ref={node => listItems= node} className="form-control"></textarea>
-        
         <div>
-            <label htmlFor="order">Ordered
-                <input type="radio" value="ordered" name="newListOrdered"
-                    onClick = {() => {
-                        ordered = true;   
-                    }}/>
+            <label htmlFor="orderedNew"> 
+                <input type="radio" id="orderedNew" name="orderedNew" value="ordered" name="newListOrdered" defaultChecked="checked"
+                onClick = {() => {ordered = true}}/>Ordered
             </label>
-            <label htmlFor="order">Unordered
-                <input type="radio" value="unordered" name="newListOrdered"
-                    onClick = {() => {
-                        ordered = false;
-                }}/>
+            <br/>
+            <label htmlFor="unorderedNew">
+                <input type="radio" id="unorderedNew" name ="orderedNew" value="unordered" name="newListOrdered"
+                onClick = {() => {ordered = false;}}/> Unordered
             </label>
-            </div>
+        </div>
         <div className="d-grid gap-2 margined-top-bottom">
-            <button className="btn btn-primary" onClick={handleClick}
-                > Add widget
-            </button>
+            <button className="btn btn-primary" onClick={handleClick}> Add widget</button>
         </div> 
     </div>
     );
@@ -142,9 +136,9 @@ function NewWidget({addWidget}) {
             <Link to="#"><button onClick={()=> showHeading()} className="btn btn-primary" id="HEADING">Heading</button></Link>
             <Link to="#"><button onClick={()=>showYoutub()} className="btn btn-primary" id="YOUTUBE">Youtube</button></Link>
             <Link to="#"><button onClick={()=>showList()} className="btn btn-primary" id="LIST">List</button></Link>
-           <div> {youtubeWidget && <Youtube addWidget={addWidget}/>}</div>
-           <div> {headingWidget && <Heading addWidget={addWidget}/>}</div>
-           <div> {listWidget && <List addWidget={addWidget}/>}</div> 
+           <div>{youtubeWidget && <Youtube addWidget={addWidget}/>}</div>
+           <div>{headingWidget && <Heading addWidget={addWidget}/>}</div>
+           <div>{listWidget && <List addWidget={addWidget}/>}</div> 
         </div>
     )
 }
