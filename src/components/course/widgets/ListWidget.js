@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Card, CardFooter,CardHeader,CardBody} from 'reactstrap';
 import './newWidgetStyle.css';
 
-function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
+function ListWidget({widget, updateWidget, deleteWidget}) {
     const [editIsOpen,setEditIsOpen] = useState(false);
     const toggleEditIsOpenToTrue =()=>{
         setEditIsOpen(!editIsOpen)
@@ -22,7 +22,7 @@ function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
             </CardBody>
             <CardFooter>
             <div className="col"> 
-                <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>Delete</button>
+                <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.timestamp)}>Delete</button>
                 <button className="btn btn-primary" onClick={()=>toggleEditIsOpenToTrue()}> Edit</button>
             </div>
             </CardFooter>
@@ -78,9 +78,6 @@ function ListWidget({widget, updateWidget, saveWidgets, deleteWidget}) {
                             }}/>
                         Unordered
                     </label>
-                </div> 
-                <div className="col">
-                    <button className="btn btn-primary float-right" onClick ={saveWidgets}> Save </button> 
                 </div>  
             </div>  
         </Card>

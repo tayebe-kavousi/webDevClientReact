@@ -19,7 +19,10 @@ function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, upd
     
     return (
         <div className="container-fluid">
-            <NewWidget addWidget={addWidget}/>
+            <NewWidget addWidget={addWidget} widgets={widgets}/>
+            <div className="col">
+                <button className="btn btn-primary float-right" onClick ={saveWidgets}> Save </button> 
+            </div>  
             <div>
                 <button onClick={setModalIsOpenToTrue} className="btn btn-primary" >Preview</button>
                 <Modal size="lg" style={{maxWidth: '700px', width: '90%'}} isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)}>
@@ -35,9 +38,9 @@ function WidgetListComponent({widgets, saveWidgets ,deleteWidget, addWidget, upd
             {widgets.map((widget)=>{
                 return(
                     <div className="col-sm-3" style={{width:"33%"}}>
-                        {widget.widgetType === 'YOUTUBE' && <YoutubeWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
-                        {widget.widgetType === 'HEADING' && <HeadingWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>}
-                        {widget.widgetType === 'LIST' && <ListWidget widget={widget} updateWidget={updateWidget} saveWidgets={saveWidgets} deleteWidget={deleteWidget}/>} 
+                        {widget.widgetType === 'YOUTUBE' && <YoutubeWidget widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>}
+                        {widget.widgetType === 'HEADING' && <HeadingWidget widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>}
+                        {widget.widgetType === 'LIST' && <ListWidget widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>} 
                     </div>     
                 )})}    
             </div>

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Card, CardFooter,CardHeader,CardBody} from 'reactstrap';
 import './newWidgetStyle.css';
 
-function HeadingWidget({widget, updateWidget,deleteWidget, saveWidgets}) {
+function HeadingWidget({widget, updateWidget,deleteWidget}) {
   const [editIsOpen,setEditIsOpen] = useState(false);
   const toggleEditIsOpenToTrue =()=>{
     setEditIsOpen(!editIsOpen)
@@ -21,7 +21,7 @@ function HeadingWidget({widget, updateWidget,deleteWidget, saveWidgets}) {
         </CardBody>
         <CardFooter>
         <div className="col"> 
-          <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>Delete</button>
+          <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.timestamp)}>Delete</button>
           <button className="btn btn-primary" onClick={()=>toggleEditIsOpenToTrue()}> Edit</button>
         </div>
         </CardFooter>
@@ -60,9 +60,7 @@ function HeadingWidget({widget, updateWidget,deleteWidget, saveWidgets}) {
             {widget.size === 3 && <h3>{widget.text}</h3> }
             {widget.size === 4 && <h4>{widget.text}</h4> }
         </div>
-        <div className="col">
-                    <button className="btn btn-primary float-right" onClick ={saveWidgets}> Save </button> 
-                </div>  
+         
       </div>
     </Card>
   )

@@ -2,12 +2,12 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import "./newWidgetStyle.css";
 
-function Youtube({addWidget}){
+function Youtube({widgets,addWidget}){
     let title,src;
     const handleClick = ()=>{
         let widget = {
             title: title.value,
-            id: (new Date()).getTime(),
+            timestamp: widgets.lengt,
             widgetType:"YOUTUBE",
             src: src.value.split("/")[3]
         }
@@ -35,12 +35,11 @@ function Heading({addWidget}) {
     const handleClick = ()=>{
         let widget = {
             title: title.value,
-            id: (new Date()).getTime(),
+            timestamp: (new Date()).getTime(),
             widgetType:"HEADING",
             text: text.value,
             size: parseInt(size.value)
         }
-        console.log(widget)
         addWidget(widget);
     }
     return(
@@ -74,7 +73,7 @@ function List({addWidget}) {
     const handleClick = ()=>{
         let widget = {
             title: title.value,
-            id: (new Date()).getTime(),
+            timestamp: (new Date()).getTime(),
             widgetType:"LIST",
             listItems: listItems.value,
             ordered: ordered

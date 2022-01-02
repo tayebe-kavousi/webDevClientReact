@@ -2,7 +2,7 @@ import React ,{useState} from 'react';
 import {Card, CardFooter,CardHeader,CardBody} from 'reactstrap';
 import './newWidgetStyle.css';
 
-function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
+function YoutubeWidget({widget, updateWidget,deleteWidget}) {
     const [editIsOpen,setEditIsOpen] = useState(false);
     const toggleEditIsOpenToTrue =()=>{
         setEditIsOpen(!editIsOpen)
@@ -26,7 +26,7 @@ function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
                 </CardBody>
                 <CardFooter>
                 <div className="col"> 
-                    <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.id)}>Delete</button>
+                    <button className="btn btn-danger float-right" onClick={()=>deleteWidget(widget.timestamp)}>Delete</button>
                     <button className="btn btn-primary" onClick={()=>toggleEditIsOpenToTrue()}> Edit</button>
                 </div>
                 </CardFooter>
@@ -63,9 +63,6 @@ function YoutubeWidget({widget, updateWidget,deleteWidget,saveWidgets}) {
                             }
                     }/>
                 </div>
-                <div className="col">
-                    <button className="btn btn-primary float-right" onClick ={saveWidgets}> Save </button> 
-                </div>  
             </div>
         </Card>
     )
